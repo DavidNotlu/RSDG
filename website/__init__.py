@@ -2,23 +2,48 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-# Initalizes flask app
 
 db = SQLAlchemy()
-DB_NAME = "database.db"
+DB_NAME = "users.db"
+DB_DRINK_NAME = "drinks.db"
 
 
 def create_app():
     app = Flask(__name__)
-    app.config['SECRET_KEY'] = 'thisisasupersecretkey' #Encrypts user cookies from session
-
-    #Imports views and auth friles
-    from .views import views
-    from .auth import auth
-
+    app.config['SECRET_KEY'] = 'supersecretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
+    from .views import views
+    from .auth import auth
+
+    app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
+
+    from .models import User, Note
+    
+    with app.app_context():
+        db.create_all()
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
+
     return app
 
-   
+#Creates user database if not already created
+def create_database(app):
+    if not path.exists('website/' + DB_NAME):
+        db.create_all(app=app)
+        print('Created Database!')
+
+#Creates drinks database if not already created
+#TODO: create drink database by scrapping starbucks website
+def create_drink_database(app):
+    if not path.exists('website/' + DB_DRINK_NAME):
+        db.create_all(app=app)
+        print('Created Drinks Database!')
