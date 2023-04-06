@@ -10,6 +10,9 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
+
+# TODO: Theres need to be rewritten to work with the drink generator not "Note"
+
     if request.method == 'POST': 
         note = request.form.get('note')#Gets the note from the HTML 
 
@@ -22,7 +25,6 @@ def home():
             flash('Note added!', category='success')
 
     return render_template("home.html", user=current_user)
-
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():  
