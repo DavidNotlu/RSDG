@@ -7,31 +7,33 @@ from sqlalchemy.sql import func
 random_val = ["1", "2"]
 def getDrink(val1, val2, val3):
         if(val1 == "1"):
-            rdrink = random.choice(random.choice(drinks.hot_drink))
+            drink = random.choice(random.choice(drinks.hot_drink))
             if(val2 == "1"):
                  drink = random.choice(random.choice(drinks.hot_caf))
             elif(val2 == "2"):
                  drink = random.choice(random.choice(drinks.hot_decaf))
             if(val3 == "1"):
                  syrup = random.choice(drinks.hot_syrup)
-                 drink = syrup + " " + rdrink
+                 return syrup + " " + drink
             else:
                  drink = random.choice(random.choice(drinks.hot_drink))
         elif(val1 == "2"):
              drink = random.choice(random.choice(drinks.iced_drink))
         else:
-             v1 = random.choice(random_val)
-             v2 = random.choice(random_val)
-             v3 = random.choice(random_val)
-             getDrink(v1, v2, v3)
-        print(drink)
+             val1 = random.choice(random_val)
+             val2 = random.choice(random_val)
+             val3 = random.choice(random_val)
+             print(val1 + val2 + val3)
+             drink = getDrink(val1, val2, val3)
+             
+        
         return drink
 
 class Drink():
     def __init__(self, article, name):
         self.article = article
-        name = name = name
-        drink.append(self)
+        self.name = name
+        
     def get(self):
         return self.article, self.name
     
