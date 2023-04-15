@@ -11,11 +11,9 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
+    val1 = request.form.get("temp")
+    val2 = request.form.get("caf")
+    val3 = request.form.get("sweet")
 
-# TODO: These need to be rewritten to work with the drink generator not "Note"
-
-    #if request.method == 'GET': 
-    
-    return render_template("home.html", user=current_user, drink=getDrink())
-
+    return render_template("home.html", user=current_user, drink=getDrink(val1, val2, val3))
 
