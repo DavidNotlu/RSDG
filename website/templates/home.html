@@ -3,12 +3,58 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
   %}
   <!--TODO: needs to be updates and connected with the drink generator backend-->
-  <h1 align="center">Generate Your Drink</h1>
-  <form method="POST">
-    <br />
-    <div align="center">
-      <button type="submit" class="btn btn-primary">Generate Drink</button> <!--Button to generate the drink-->
+
+<form method="POST">
+  <div>
+  </div>
+
+  <div class="col d-flex justify-content-center row h-100 mt-5">
+  <div class="card mb-3" style="width: 40rem;">
+    <h1 class="card-header" align="center">Generate Your Drink</h1>
+    <div class="card-body">
+      <form class="row gy-2 gx-3 align-items-center">
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect">
+            <option selected>Hot or Iced?</option>
+            <option value="1">Hot</option>
+            <option value="2">Iced</option>
+            <option value="3">No Preference</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect">
+            <option selected>Caffiene or Decaf?</option>
+            <option value="4">Caffiene me up</option>
+            <option value="5">No Please</option>
+            <option value="6">No Preference</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <select class="form-select" id="autoSizingSelect">
+            <option selected>Sugar Rush or No Diabetes</option>
+            <option value="7">Sweet</option>
+            <option value="8">Unsweet</option>
+            <option value="9">No Preference</option>
+          </select>
+        </div>
+            </label>
+          </div>
+        </div>
+      </form>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary"
+        >Generate Drink
+      </button> <!--Button to generate the drink-->
+      </div>
     </div>
-  </form>
+  </div>
+  <center><h3>{{drink}}</h3></center>
+</div>
+  
+
   {% endblock %}
   

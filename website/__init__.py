@@ -20,7 +20,7 @@ def create_app():
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
-    from .models import User
+    from .models import User, Drink
     
     with app.app_context():
         db.create_all()
@@ -41,9 +41,3 @@ def create_database(app):
         db.create_all(app=app)
         print('Created Database!')
 
-#Creates drinks database if not already created
-#TODO: create drink database by scrapping starbucks website
-def create_drink_database(app):
-    if not path.exists('website/' + DB_DRINK_NAME):
-        db.create_all(app=app)
-        print('Created Drinks Database!')

@@ -1,8 +1,26 @@
 from . import db
+import random
+from .import drinks
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
+# def getDrink():
+#     temp = random.choice(random.choice(drinks.hot_drink))
+#     print(temp)
+drink = []
+# getDrink()
+def getDrink():
+        temp = random.choice(random.choice(drinks.hot_drink))
+        return temp
 
+class Drink():
+    def __init__(self, article, name):
+        self.article = article
+        name = name = name
+        drink.append(self)
+    def get(self):
+        return self.article, self.name
+    
 # Defines User 
 # TODO: Create random drink instead of "note" to generate the drink
 class User(db.Model, UserMixin):
