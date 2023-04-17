@@ -14,6 +14,7 @@ def home():
     val1 = request.form.get("temp")
     val2 = request.form.get("caf")
     val3 = request.form.get("sweet")
-
+    if request.method == 'POST': 
+        pass
     return render_template("home.html", user=current_user, drink=getDrink(val1, val2, val3))
 
