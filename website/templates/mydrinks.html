@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Notes</h1>
+<!-- TODO Implement rating system. For starters just get a working notes system, we can build more from there. -->
+<!-- A new button on the drink generator page should direct here. -->
+<!-- I think this can look very similar to the notes section in the tutorial --> 
+<!-- I wanted to add a star rating system but all of this really needs is notes on each drink --> 
+<ul class="list-group list-group-flush" id="drinks">
+    {% for drink in user.drinks %} 
+    <li class ="list-group-item">{{ drink.data }}</li>
+    {%endfor%} 
+</ul>
