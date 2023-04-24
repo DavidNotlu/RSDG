@@ -12,7 +12,7 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def welcome():
-    return render_template("welcome.html")
+    return render_template("welcome.html", user=current_user)
 
 
 @views.route('/home', methods=['GET', 'POST'])
