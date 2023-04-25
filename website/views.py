@@ -13,11 +13,7 @@ thisDrink = ""
 @views.route('/', methods=['GET', 'POST'])
 def welcome():
     if current_user.is_authenticated:
-        val1 = request.form.get("temp")
-        val2 = request.form.get("caf")
-        val3 = request.form.get("sweet")
-        global thisDrink
-        thisDrink = getDrink(val1, val2, val3)
+        thisDrink = ""
         return render_template("home.html", user=current_user, drink=thisDrink)
     else:
         return render_template("welcome.html")
@@ -39,7 +35,6 @@ def home():
 @views.route('/my_drinks', methods=['GET', 'POST'])
 @login_required
 def my_drinks():
-
     if request.method == 'POST':
         rating = request.form.get('rating')  # Gets the note from the HTML
 
