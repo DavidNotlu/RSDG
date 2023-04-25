@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+  %}
+  <h1 align="center">My Drinks</h1>
+  <ul class="list-group list-group-flush" id="drinks">
+    {% for drink in current_user.drinks %}
+    <li class="list-group-item">
+      {% set stars = drink.data | int %}
+        {% for i in range(stars) %}
+        <div class="rating">
+          <input type="radio" id="star6" name="rating" value="6" />
+          <label for="star6" title="text">6 stars</label>
+        </div>
+          
+        {% endfor %}
+          <div class = "a" style="position:relative;"><font size="+1">{{ drink.image }}</font></div>  
+
+           
+      <div class ="b" >
+        <button type="button" class="close" onClick="deleteDrink({{drink.id}})" style="float: right;" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    </li>
+    {% endfor %}
+  </ul>
+  <div align="center">
+    <a href="/home">
+      <input type="button" class="btn btn-primary" value="Get a Recommendation" />
+   </a>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}"/>
+  {% endblock %}

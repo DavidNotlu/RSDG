@@ -23,25 +23,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <div class="navbar-nav">
-              {% if user.is_authenticated %}
-              <a class="nav-item nav-link" id="home" href="/home">Home</a>
-              <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-              {% else %}
-              <a class="nav-item nav-link" id="login" href="/login">Login</a>
-              <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
-              {% endif %}
-            </div>
         </div>
       </div>
     </nav>
 <!--Navbar ends-->
-    <!-- TODO An empty navbar should be added to match the other pages --> 
-    <!-- TODO I'm going to add a different Logo image with "Drink Generator" printed in the starbucks font below the Logo --> 
-    
-    
-    <!-- TODO: Buttons are functional but need to be aligned better --> 
-    <!-- TODO: I'd like to make the buttons green to match the starbucks theme --> 
     
       <div class="position-absolute z-n1 " style="height: 50%;">
         <img class="img-fluid" src="static/front2.jpg">
@@ -63,5 +48,3 @@
     
    
     </div>
-
-
