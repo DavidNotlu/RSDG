@@ -19,7 +19,6 @@ def welcome():
         global thisDrink
         thisDrink = getDrink(val1, val2, val3)
         return render_template("home.html", user=current_user, drink=thisDrink)
-
     else:
         return render_template("welcome.html")
 

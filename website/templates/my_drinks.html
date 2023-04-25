@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
-    
-    <h1 align="center">My Drinks</h1>
+    <div class="col d-flex justify-content-center row mt-5">
+      <div class="card mb-3" style="width: 40rem;">
+
+    <h1 class="card-header" align="center">My Drinks</h1>
     <ul class="list-group list-group-flush" id="drinks">
       {% for drink in current_user.drinks %}
       <li class="list-group-item">
@@ -14,7 +16,6 @@
             
           {% endfor %}
             <div class = "a" style="position:relative;"><font size="+1">{{ drink.image }}</font></div>  
-
              
         <div class ="b" >
           <button type="button" class="close" onClick="deleteDrink({{drink.id}})" style="float: right;" >
@@ -26,7 +27,7 @@
       {% endfor %}
     </ul>
     <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}"/>
-    
+    <div class="card-body">
     <form method="POST">
       <div class="rating">
           <input type="radio" id="star5" name="rating" value="5" />
@@ -40,16 +41,15 @@
           <input type="radio" id="star1" name="rating" value="1" />
           <label for="star1" title="text">1 star</label>
         </div>
-     
+    
       <textfield name="drink" id="drink" class="form-control"> {{ name }}</textfield>
-
-      <div align="center">
+      <div class="position-absolute start-50 translate-middle-x pt-5" align="center">
         <button type="submit" class="btn btn-primary">Add Drink</button> 
       </div>
-      
-
-      
     </form>
+      </div>
+    </div>
+    </div>
     
 
     {% endblock %}

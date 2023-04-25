@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
   %}
-  <h1 align="center">My Drinks</h1>
+  <div class="col d-flex justify-content-center row mt-5">
+    <div class="card mb-3" style="width: 40rem;">
+  <h1 class="card-header" align="center">My Drinks</h1>
   <ul class="list-group list-group-flush" id="drinks">
     {% for drink in current_user.drinks %}
     <li class="list-group-item">
@@ -24,9 +26,11 @@
     </li>
     {% endfor %}
   </ul>
-  <div align="center">
+  <div align="center" class="py-3">
     <a href="/home">
       <input type="button" class="btn btn-primary" value="Get a Recommendation" />
    </a>
+  </div>
+    </div>
   <link rel="stylesheet" href="{{ url_for('static', filename='/styles/style.css') }}"/>
   {% endblock %}

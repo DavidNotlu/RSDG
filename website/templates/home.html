@@ -3,11 +3,11 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
     %}
     <!--TODO: needs to be updates and connected with the drink generator backend-->
-  
-  <form method="POST">
-    <div>
+    <div class="position-fixed z-n1 top-0 start-0">
+      <img class="img-fluid" src="static/home.jpg">
     </div>
-  
+    <div class="position-relative opacity-75">
+    <form method="POST">
     <div class="col d-flex justify-content-center row h-100 mt-5">
     <div class="card mb-3" style="width: 40rem;">
       <h1 class="card-header" align="center">Generate Your Drink</h1>
@@ -55,7 +55,7 @@
       </div>
     </div>
   </div>
-    
+</div>
   
     {% endblock %}
     
